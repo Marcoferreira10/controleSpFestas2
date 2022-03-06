@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Form\CompraController;
+use App\Http\Controllers\Form\MaterialController;
 use App\Http\Controllers\Form\PedidosController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {return view('welcome');});
 
 Route::resource('/pedidos', PedidosController::class);
+Route::resource('/compras', CompraController::class);

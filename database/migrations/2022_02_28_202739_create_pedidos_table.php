@@ -21,7 +21,7 @@ class CreatePedidosTable extends Migration
             $table->string('nome');
             $table->integer('idade');
             $table->integer('qtd');
-            $table->boolean('urgente');
+            $table->boolean('urgente')->nullable();
             $table->date('prazo');
             $table->timestamps();
         });

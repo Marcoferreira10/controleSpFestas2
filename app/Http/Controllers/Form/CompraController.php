@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pedidos;
+use App\Models\Compras;
 use Illuminate\Http\Request;
 
-class PedidosController extends Controller
+class CompraController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $pedidos = Pedidos::all();
-        $mensagem = $request->session()->get('mensagem');
+        $compras = Compras::all();
 
-        return view('Admin.index', compact('pedidos', 'mensagem'));
+        return view('Admin.compras', compact('compras')
+     );
     }
 
     /**
@@ -28,7 +28,7 @@ class PedidosController extends Controller
      */
     public function create()
     {
-        return view('Admin.cadastro');
+        return view('Admin.inserir');
     }
 
     /**
@@ -39,12 +39,13 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        $pedido = Pedidos::create($request->all());
+        $compra = Compras::create($request->all());
         $request->session()->flash(
-            'mensagem', "Pedido {$pedido->id} adicionado com sucesso. Cliente: {$pedido->cliente}"
+            'mensagem', "Material {$compra->material} incluído com sucesso."
         );
-        return redirect('/pedidos');
-    }        
+        return redirect('/compras');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -85,14 +86,8 @@ class PedidosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        Pedidos::destroy($id);
-        $request->session()->flash(
-            'mensagem', "Pedido excluído com sucesso!"
-        );
-
-        return redirect('/pedidos');
-        
+        //
     }
 }
