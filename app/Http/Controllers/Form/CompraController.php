@@ -13,12 +13,12 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $compras = Compras::all();
+        $mensagem = $request->session()->get('mensagem');;;
 
-        return view('Admin.compras', compact('compras')
-     );
+        return view('Admin.pages.compras', compact('compras', 'mensagem'));
     }
 
     /**
@@ -28,7 +28,7 @@ class CompraController extends Controller
      */
     public function create()
     {
-        return view('Admin.inserir');
+        return view('Admin.pages.inserir');
     }
 
     /**
@@ -91,3 +91,4 @@ class CompraController extends Controller
         //
     }
 }
+    

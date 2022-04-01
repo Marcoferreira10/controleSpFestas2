@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Form;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pedidos;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class PedidosController extends Controller
 {
@@ -17,8 +19,7 @@ class PedidosController extends Controller
     {
         $pedidos = Pedidos::all();
         $mensagem = $request->session()->get('mensagem');
-
-        return view('Admin.index', compact('pedidos', 'mensagem'));
+        return view('Admin.pages.index', compact(['pedidos', 'mensagem']));
     }
 
     /**
@@ -28,7 +29,7 @@ class PedidosController extends Controller
      */
     public function create()
     {
-        return view('Admin.cadastro');
+        return view('Admin.pages.cadastro');
     }
 
     /**
@@ -95,4 +96,15 @@ class PedidosController extends Controller
         return redirect('/pedidos');
         
     }
+
+    /**
+     * Search Pedidos
+     */
+
+     public function search(Request $request)
+     {
+        
+          $pedidos = $this->repository->search($request->filter);
+         return view('Admin.index', ['pedidos'=> $pedidos,]);
+     }
 }

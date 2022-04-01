@@ -15,11 +15,11 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->date('d/m/Y');
+            $table->date('data');
             $table->string('material');
             $table->integer('embalagem');
-            $table->integer('preco');
-            $table->integer('precoUnit');
+            $table->double('preco');
+            $table->double('precoUnit');
             $table->timestamps();
         });
     }

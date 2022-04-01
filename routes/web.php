@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {return view('welcome');});
 
+Route::any('pedidos/pesquisar', [PedidosController::class, 'search'])->name('pedidos.search');
 Route::resource('/pedidos', PedidosController::class);
 Route::resource('/compras', CompraController::class);

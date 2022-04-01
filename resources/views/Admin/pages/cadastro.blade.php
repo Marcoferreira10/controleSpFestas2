@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('templates.layout')
 
 @section('title')
   Cadastro
@@ -7,17 +7,17 @@
 @section('cabecalho')
   <h1>Cadastros</h1>
   <p>Cadastrar os pedidos solicitados e materiais para uso no dia a dia </p>
+  <nav id="menu">
+    <ul>
+        <li class="linha-vert"><a href="{{ route('pedidos.index')}}">Pedidos</a></li>
+        <li class="linha-vert"><a href="#">Catálogo</a></li>
+        <li class="linha-vert"><a href="{{ route('compras.index')}}">Material</a></li>
+    </ul>
+</nav>
 @endsection
 
 @section('conteudo')
-  <main>
-    <nav id="menu">
-      <ul>
-          <li class="linha-vert"><a href="{{ route('pedidos.index')}}">Pedidos</a></li>
-          <li class="linha-vert"><a href="#">Catálogo</a></li>
-          <li class="linha-vert"><a href="{{ route('compras.index')}}">Material</a></li>
-      </ul>
-  </nav>
+      
   <h2 id="cadastro">Cadastrar Pedidos</h2>
   <div class="container">
     <form action="{{ route('pedidos.store') }}" method="post">
@@ -68,9 +68,4 @@
       </div>
     </form>
   </div>
-  </main>
-
-  <footer>
-
-  </footer>
-@endsection
+ @endsection

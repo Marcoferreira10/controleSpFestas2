@@ -8,14 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Compras extends Model
 {
     use HasFactory;
-    protected $table = 'compras';
+    
     protected $fillable = ['data', 'material', 'embalagem', 'preco', 'precoUnit'];
+    public $timestamps = false;
 
-    function calcPreco($preco, $precoUnit)
-    {
-        $this->preco = $preco;
-        $this->precoUnit = $precoUnit;
-
-        
-    }
-}
+}    
