@@ -1,4 +1,5 @@
 
+// Calculo dos produtos por unidade
 function calcular()
 {
     const preco = document.getElementById('preco').value;
@@ -13,17 +14,17 @@ function calcular()
 };    
 
 
+
+
+// Confirmação que uma impressão foi concluída   
+function cbClick(id){
+    const elemento = document.getElementById(`cb[${id}]`); 
+    const td = document.getElementById(`check[${id}]`);
    
-function cbClick(cb){
-    const input = document.getElementById('cb');
-    const td = document.getElementById('check');
-    console.log(td);
-    if( input=='checked') {
-         
-         td.parentNode.style.background = '#25E256';
+    if(elemento.checked) {
+         td.style.background = '#25E256';
     } else{
-         
-         td.parentNode.style.background = '';
-         }
+        td.style.background = '';
+    }
 }
 

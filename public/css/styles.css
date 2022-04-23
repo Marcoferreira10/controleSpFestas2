@@ -123,12 +123,8 @@ main{
     
   }
 
-  .feito{
-      background-color: rgb(240, 239, 239);
-  }
-
-  .feitoMarcado{
-      background-color: #252525;
+  .colorir {
+      background-color: #25e256;
   }
 
   thead{

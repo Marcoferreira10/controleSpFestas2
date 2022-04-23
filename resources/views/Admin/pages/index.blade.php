@@ -26,7 +26,7 @@
   </div> 
   @endif
       
-    <form action="{{ route('pedidos.search')}}" method="POST" id="pesquisa">
+    <form action="#" method="POST" id="pesquisa">
       @csrf
       <label for="data_inicio">Data Inicial</label>
       <input type="date" value="{{ request('data_inicio') }}" name="data_inicio" class="form_control">
@@ -62,11 +62,11 @@
           <td>{{ $pedido->nome }}</td>
           <td>{{ $pedido->idade }}</td>
           <td>{{ $pedido->qtd }}</td>
-          <td id="check">
+          <td id="check[{{ $pedido->id }}]">
             <input class="form-check-input" id="cb[{{ $pedido->id }}]" type="checkbox" onclick="cbClick({{ $pedido->id }})">
           </td>
           <td>{{ $pedido->urgente }}</td>
-          <td>{{  date('d/m/Y', strtotime($pedido->prazo)) }}</td>
+          <td>{{  date('d/m/Y', strtotime($pedido->prazo)) }}</td> 
           <td>
             <a href=""><button type="button" class="btn btn-info">Finalizado</button></a>
           </td>

@@ -1,4 +1,4 @@
-@extends('templates.layout')
+@extends('layout')
 
 @section('title', 'Compras')
     
@@ -36,7 +36,7 @@
             <td>{{ $compra->material }}</td>
             <td>{{ $compra->embalagem }}</td>
             <td>{{ $compra->preco }}</td>
-            <td>{{ $compra->precoUnit }}</td>
+            <td>{{ $compra->precoUnit }}</td> 
             <td>
               <form action="compra/{{ $compra->id }}" method="POST"
                   onsubmit="return confirm('Tem certeza que deseja excluir esta compra de material: {{ $compra->nome }}?')">
